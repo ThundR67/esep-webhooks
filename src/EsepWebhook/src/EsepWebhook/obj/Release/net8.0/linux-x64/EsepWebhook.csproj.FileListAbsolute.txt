@@ -17,3 +17,4 @@
 /home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/obj/Release/net8.0/linux-x64/EsepWebhook.pdb
 /home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/obj/Release/net8.0/linux-x64/EsepWebhook.genruntimeconfig.cache
 /home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/obj/Release/net8.0/linux-x64/ref/EsepWebhook.dll
+/home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/bin/Release/net8.0/linux-x64/Amazon.Lambda.APIGatewayEvents.dll

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "veM9MYRdFOMRL3OFxmsXg0jFc4aFeuoajtopFvBsI0B/FnKP5YQ/pisd14PYH0AfKDwWisjh0QIZIio4vvKdGA==",
+  "dgSpecHash": "zf1exvuL+YcZ7MUVh3tTyUAI/xWDDp1eIRjwSzw2P4/sdqfUWw6R1Q2+D/6zLHzJzNBsG/v9s/NkiOHGAkrTbg==",
   "success": true,
   "projectFilePath": "/home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/EsepWebhook.csproj",
   "expectedPackageFiles": [
+    "/home/roshan/.nuget/packages/amazon.lambda.apigatewayevents/2.7.2/amazon.lambda.apigatewayevents.2.7.2.nupkg.sha512",
     "/home/roshan/.nuget/packages/amazon.lambda.core/2.7.0/amazon.lambda.core.2.7.0.nupkg.sha512",
     "/home/roshan/.nuget/packages/amazon.lambda.serialization.systemtextjson/2.4.4/amazon.lambda.serialization.systemtextjson.2.4.4.nupkg.sha512",
     "/home/roshan/.nuget/packages/newtonsoft.json/13.0.4/newtonsoft.json.13.0.4.nupkg.sha512",

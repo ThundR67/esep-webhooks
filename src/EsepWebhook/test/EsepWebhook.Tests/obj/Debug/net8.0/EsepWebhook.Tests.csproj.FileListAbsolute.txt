@@ -102,3 +102,4 @@
 /home/roshan/esps-webhooks/src/EsepWebhook/test/EsepWebhook.Tests/obj/Debug/net8.0/EsepWebhook.Tests.pdb
 /home/roshan/esps-webhooks/src/EsepWebhook/test/EsepWebhook.Tests/obj/Debug/net8.0/EsepWebhook.Tests.genruntimeconfig.cache
 /home/roshan/esps-webhooks/src/EsepWebhook/test/EsepWebhook.Tests/obj/Debug/net8.0/ref/EsepWebhook.Tests.dll
+/home/roshan/esps-webhooks/src/EsepWebhook/test/EsepWebhook.Tests/bin/Debug/net8.0/Amazon.Lambda.APIGatewayEvents.dll

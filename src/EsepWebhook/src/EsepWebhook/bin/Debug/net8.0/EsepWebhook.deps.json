@@ -8,12 +8,21 @@
     ".NETCoreApp,Version=v8.0": {
       "EsepWebhook/1.0.0": {
         "dependencies": {
+          "Amazon.Lambda.APIGatewayEvents": "2.7.2",
           "Amazon.Lambda.Core": "2.7.0",
           "Amazon.Lambda.Serialization.SystemTextJson": "2.4.4",
           "Newtonsoft.Json": "13.0.4"
         },
         "runtime": {
           "EsepWebhook.dll": {}
+        }
+      },
+      "Amazon.Lambda.APIGatewayEvents/2.7.2": {
+        "runtime": {
+          "lib/net8.0/Amazon.Lambda.APIGatewayEvents.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.2.0.0"
+          }
         }
       },
       "Amazon.Lambda.Core/2.7.0": {
@@ -50,6 +59,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Amazon.Lambda.APIGatewayEvents/2.7.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IHvNBPLpE+fw7jwczz+iXaJxoG6jpr2WrSPMj8qTFTTGTAZXDiwW44iFjd8TITB7DuRAlszEwJ0au1rzPN/1tg==",
+      "path": "amazon.lambda.apigatewayevents/2.7.2",
+      "hashPath": "amazon.lambda.apigatewayevents.2.7.2.nupkg.sha512"
     },
     "Amazon.Lambda.Core/2.7.0": {
       "type": "package",

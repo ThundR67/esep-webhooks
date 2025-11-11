@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -28,33 +31,34 @@ public class Function
     /// <summary>
     /// Parse a GitHub issues webhook payload and forward the details to Slack.
     /// </summary>
-    public async Task<string> FunctionHandler(string input, ILambdaContext context)
+    public async Task<APIGatewayProxyResponse> FunctionHandler(APIGatewayProxyRequest request, ILambdaContext context)
     {
         var slackWebhookUrl = Environment.GetEnvironmentVariable(SlackUrlEnvVar);
         if (string.IsNullOrWhiteSpace(slackWebhookUrl))
         {
             const string message = "Missing SLACK_URL environment variable.";
             context.Logger.LogLine(message);
-            return message;
+            return CreateResponse(HttpStatusCode.InternalServerError, message);
         }
 
-        if (string.IsNullOrWhiteSpace(input))
+        var rawBody = ExtractBody(request);
+        if (string.IsNullOrWhiteSpace(rawBody))
         {
             const string message = "No payload supplied.";
             context.Logger.LogLine(message);
-            return message;
+            return CreateResponse(HttpStatusCode.BadRequest, message);
         }
 
         IssueNotification notification;
         try
         {
-            notification = ParsePayload(input);
+            notification = ParsePayload(rawBody);
         }
         catch (Exception ex)
         {
             var message = $"Invalid GitHub webhook payload: {ex.Message}";
             context.Logger.LogLine(message);
-            return message;
+            return CreateResponse(HttpStatusCode.BadRequest, message);
         }
 
         var slackPayload = new
@@ -70,12 +74,41 @@ public class Function
             var body = await response.Content.ReadAsStringAsync();
             var message = $"Slack webhook returned {(int)response.StatusCode}: {body}";
             context.Logger.LogLine(message);
-            return message;
+            return CreateResponse(HttpStatusCode.BadGateway, message);
         }
 
         var issueIdentifier = notification.IssueNumber?.ToString() ?? "unknown";
-        return $"Slack notification sent for issue #{issueIdentifier}.";
+        var success = $"Slack notification sent for issue #{issueIdentifier}.";
+        context.Logger.LogLine(success);
+        return CreateResponse(HttpStatusCode.OK, success);
     }
+
+    private static string? ExtractBody(APIGatewayProxyRequest? request)
+    {
+        if (request is null)
+        {
+            return null;
+        }
+
+        if (request.IsBase64Encoded && !string.IsNullOrEmpty(request.Body))
+        {
+            var data = Convert.FromBase64String(request.Body);
+            return Encoding.UTF8.GetString(data);
+        }
+
+        return request.Body;
+    }
+
+    private static APIGatewayProxyResponse CreateResponse(HttpStatusCode statusCode, string message) =>
+        new()
+        {
+            StatusCode = (int)statusCode,
+            Body = JsonConvert.SerializeObject(new { message }),
+            Headers = new Dictionary<string, string>
+            {
+                ["Content-Type"] = "application/json"
+            }
+        };
 
     private static IssueNotification ParsePayload(string raw)
     {

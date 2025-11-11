@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.TestUtilities;
 using Xunit;
 
@@ -41,9 +42,15 @@ public class FunctionTest
                           }
                           """;
 
-            var result = await function.FunctionHandler(payload, context);
+            var request = new APIGatewayProxyRequest
+            {
+                Body = payload
+            };
 
-            Assert.Contains("Slack notification sent", result);
+            var response = await function.FunctionHandler(request, context);
+
+            Assert.Equal((int)HttpStatusCode.OK, response.StatusCode);
+            Assert.Contains("Slack notification sent", response.Body);
             Assert.NotNull(handler.LastRequestBody);
             Assert.Contains("octo-org/octo-repo", handler.LastRequestBody);
             Assert.Contains("https://github.com/octo-org/octo-repo/issues/42", handler.LastRequestBody);

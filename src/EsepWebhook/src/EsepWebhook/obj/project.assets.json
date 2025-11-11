@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "Amazon.Lambda.APIGatewayEvents/2.7.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Amazon.Lambda.APIGatewayEvents.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Amazon.Lambda.APIGatewayEvents.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Amazon.Lambda.Core/2.7.0": {
         "type": "package",
         "compile": {
@@ -46,6 +59,19 @@
       }
     },
     "net8.0/linux-x64": {
+      "Amazon.Lambda.APIGatewayEvents/2.7.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Amazon.Lambda.APIGatewayEvents.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Amazon.Lambda.APIGatewayEvents.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Amazon.Lambda.Core/2.7.0": {
         "type": "package",
         "compile": {
@@ -91,6 +117,24 @@
     }
   },
   "libraries": {
+    "Amazon.Lambda.APIGatewayEvents/2.7.2": {
+      "sha512": "IHvNBPLpE+fw7jwczz+iXaJxoG6jpr2WrSPMj8qTFTTGTAZXDiwW44iFjd8TITB7DuRAlszEwJ0au1rzPN/1tg==",
+      "type": "package",
+      "path": "amazon.lambda.apigatewayevents/2.7.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "amazon.lambda.apigatewayevents.2.7.2.nupkg.sha512",
+        "amazon.lambda.apigatewayevents.nuspec",
+        "lib/net8.0/Amazon.Lambda.APIGatewayEvents.dll",
+        "lib/net8.0/Amazon.Lambda.APIGatewayEvents.xml",
+        "lib/netcoreapp3.1/Amazon.Lambda.APIGatewayEvents.dll",
+        "lib/netcoreapp3.1/Amazon.Lambda.APIGatewayEvents.xml",
+        "lib/netstandard2.0/Amazon.Lambda.APIGatewayEvents.dll",
+        "lib/netstandard2.0/Amazon.Lambda.APIGatewayEvents.xml"
+      ]
+    },
     "Amazon.Lambda.Core/2.7.0": {
       "sha512": "MUl+uIpB00yE8TwmW4ICEE3hd7DEgIWu94a7sFtAHoKz+skS52splHDxN/syId2E5STSYHCertdJSv7Qg1JdSA==",
       "type": "package",
@@ -160,6 +204,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Amazon.Lambda.APIGatewayEvents >= 2.7.2",
       "Amazon.Lambda.Core >= 2.7.0",
       "Amazon.Lambda.Serialization.SystemTextJson >= 2.4.4",
       "Newtonsoft.Json >= 13.0.4"
@@ -202,6 +247,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Amazon.Lambda.APIGatewayEvents": {
+            "target": "Package",
+            "version": "[2.7.2, )"
+          },
           "Amazon.Lambda.Core": {
             "target": "Package",
             "version": "[2.7.0, )"

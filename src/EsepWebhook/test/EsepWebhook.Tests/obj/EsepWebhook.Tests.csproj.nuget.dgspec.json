@@ -38,6 +38,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Amazon.Lambda.APIGatewayEvents": {
+              "target": "Package",
+              "version": "[2.7.2, )"
+            },
             "Amazon.Lambda.Core": {
               "target": "Package",
               "version": "[2.7.0, )"

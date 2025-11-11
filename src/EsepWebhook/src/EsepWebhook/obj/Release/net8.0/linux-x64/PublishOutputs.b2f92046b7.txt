@@ -1,0 +1,7 @@
+/home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/bin/Release/net8.0/publish/EsepWebhook.deps.json
+/home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/bin/Release/net8.0/publish/EsepWebhook.runtimeconfig.json
+/home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/bin/Release/net8.0/publish/EsepWebhook.pdb
+/home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/bin/Release/net8.0/publish/Amazon.Lambda.Core.dll
+/home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/bin/Release/net8.0/publish/Amazon.Lambda.Serialization.SystemTextJson.dll
+/home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/bin/Release/net8.0/publish/Newtonsoft.Json.dll
+/home/roshan/esps-webhooks/src/EsepWebhook/src/EsepWebhook/bin/Release/net8.0/publish/EsepWebhook.dll
